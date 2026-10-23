@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kuanonone Poultry Farm</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Kuanonone Poultry Farm</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="categories.html" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.html" class="nav-link admin-link">Admin</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>Manage chicken listings, prices, and inventory</p>
+        </div>
+    </section>
+
+    <section class="admin-dashboard">
+        <div class="container">
+            <div class="admin-actions">
+                <button class="admin-btn" onclick="showAddForm()">Add New Chicken</button>
+            </div>
+
+            <div id="addForm" class="add-form" style="display: none;">
+                <h2>Add/Edit Chicken</h2>
+                <form id="chickenForm" onsubmit="saveChicken(event)">
+                    <input type="hidden" id="chickenId">
+                    <div class="form-group">
+                        <label for="chickenName">Name/Title:</label>
+                        <input type="text" id="chickenName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenBreed">Breed:</label>
+                        <input type="text" id="chickenBreed" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenAge">Age Category:</label>
+                        <select id="chickenAge" required>
+                            <option value="">Select Age Category</option>
+                            <option value="4month">4-Month-Old (Teenager/Pullet)</option>
+                            <option value="5month">5-Month-Old (Nearly Mature)</option>
+                            <option value="6month">6-Month-Old & Older (Adult)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenPrice">Price (₱):</label>
+                        <input type="number" id="chickenPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenDescription">Description:</label>
+                        <textarea id="chickenDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenCharacteristics">Characteristics:</label>
+                        <textarea id="chickenCharacteristics" placeholder="Breed details, other relevant characteristics..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="chickenAvailability">Availability:</label>
+                        <select id="chickenAvailability" required>
+                            <option value="Available">Available</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="form-btn">Save</button>
+                        <button type="button" class="form-btn cancel-btn" onclick="hideAddForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="admin-list">
+                <h2>Chicken Inventory</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Breed</th>
+                            <th>Age Category</th>
+                            <th>Price</th>
+                            <th>Availability</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kuanonone Poultry Farm</h3>
+                    <p>Quality chickens for your farm and home.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Email: wendelyn_escuderoe@sjp2cd.edu.ph</p>
+                    <p>Phone: 0909-179-2894</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kuanonone Poultry Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
